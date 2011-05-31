@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Example GetNoticed Usage</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="getnoticed.js"></script>
+    <style type="text/css" media="screen">
+        #notifications {
+          color:#656565;
+        }
+        #notifications em {
+          font-weight: bold;
+        }
+        #notifications .notice em {
+          color: #FF8C00;
+        }
+        #notifications .info em {
+          color: green;
+        }
+        #notifications .error em {
+          color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <section>
+        <p class="info"><a href="#">Info</a></p>
+        <p class="notice"><a href="#">Notice</a></p>
+        <p class="error"><a href="#">Error</a></p>
+        <div id="notifications"></div>
+        <script type="text/javascript" charset="utf-8">
+            $('p.info a').click(function() {
+                $.getnoticed.add({
+                    title: 'Info',
+                    text:  'Here is some information',
+                    type:  'info'
+                });
+            });
+            $('p.notice a').click(function() {
+                $.getnoticed.add({
+                    title: 'Notice',
+                    text:  'FYI, Something has happened',
+                    type:  'notice'
+                });
+            });
+            $('p.error a').click(function() {
+                $.getnoticed.add({
+                    title: 'Error',
+                    text:  'You have broken teh internets!',
+                    type:  'error'
+                });
+            });
+        </script>
+    </section>
+</body>
+</html>
