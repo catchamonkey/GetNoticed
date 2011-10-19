@@ -1,9 +1,12 @@
 (function($) {
-    $.getnoticed = {'element':'p', 'type':'info', 'fadeInTime':500, 'fadeOutDelay':10000, 'fadeOutTime':600}
+    $.getnoticed = {
+        'element':'p', 'title':'Info', 'type':'info',
+        'fadeInTime':500, 'fadeOutDelay':10000, 'fadeOutTime':600
+    };
     
     $.getnoticed.add = function(params) {
-        if(!params.title || !params.text) {
-            throw 'You need to fill out the minumum 2 params: "title" and "text"';
+        if(!params.text) {
+            throw 'You need to provide the "text" param';
         }
         // override the defaults with supplied params
         for (var obj in params)
@@ -12,8 +15,8 @@
         }
         var response = '';
         response += '<'+$.getnoticed.element;
-        response += ' class="'+$.getnoticed.type+' notification"><em>';
-        response += $.getnoticed.title+':</em> ';
+        response += ' class="'+$.getnoticed.type+' notification">';
+        response += '<em>'+$.getnoticed.title+':</em> ';
         response += $.getnoticed.text;
         response += ' <a class="getnoticedClose" href="#">x</a></'+$.getnoticed.element+'>';
         $(response)
@@ -24,7 +27,7 @@
             .fadeOut($.getnoticed.fadeOutTime, function() {
                 $(this).remove();
             });
-    }
+    };
     $("a.getnoticedClose").live('click', function(event) {
         event.preventDefault();
         $(this)
