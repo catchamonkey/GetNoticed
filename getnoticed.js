@@ -1,16 +1,21 @@
 (function($) {
-    $.getnoticed = {}
+    $.getnoticed = {'element':'p'}
     
     $.getnoticed.add = function(params) {
         if(!params.title || !params.text || !params.type) {
             throw 'You need to fill out the minumum 3 params: "title", "text" and type'; 
         }
+        // override the defaults with supplied params
+        for (var obj in params)
+        {
+            $.getnoticed[obj] = params[obj];
+        }
         var response = '';
-        response += '<p';
-        response += ' class="'+params.type+' notification"><em>';
-        response += params.title+':</em> ';
-        response += params.text;
-        response += ' <a href="#">x</a></p>';
+        response += '<'+$.getnoticed.element;
+        response += ' class="'+$.getnoticed.type+' notification"><em>';
+        response += $.getnoticed.title+':</em> ';
+        response += $.getnoticed.text;
+        response += ' <a href="#">x</a></'+$.getnoticed.element+'>';
         $('#notifications').append(response);
     }
 
