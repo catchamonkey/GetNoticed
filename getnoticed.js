@@ -19,8 +19,8 @@
         $('#notifications').append(response);
     }
 
-    $("p.notification a").live('click', function(event) {
-        $(this).parents("p:eq(0)").fadeOut(300, function() {
+    $(".notification a").live('click', function(event) {
+        $(this).parents($.getnoticed.element+":eq(0)").fadeOut(300, function() {
             $(this).remove();
         });
         event.preventDefault();
