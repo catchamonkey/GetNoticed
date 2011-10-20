@@ -1,7 +1,7 @@
 (function($) {
     $.getnoticed = {
         'element':'p', 'title':'Info', 'type':'info',
-        'fadeInTime':500, 'fadeOutDelay':10000, 'fadeOutTime':600
+        'addDuration':500, 'removeDelay':10000, 'removeDuration':600
     };
     
     $.getnoticed.add = function(params) {
@@ -16,15 +16,15 @@
         var response = '';
         response += '<'+$.getnoticed.element;
         response += ' class="'+$.getnoticed.type+' notification">';
-        response += '<em>'+$.getnoticed.title+':</em> ';
+        response += '<span><em>'+$.getnoticed.title+'</em></span> ';
         response += $.getnoticed.text;
         response += ' <a class="getnoticedClose" href="#">x</a></'+$.getnoticed.element+'>';
         $(response)
             .hide()
             .appendTo('#notifications')
-            .fadeIn($.getnoticed.fadeInTime)
-            .delay($.getnoticed.fadeOutDelay)
-            .fadeOut($.getnoticed.fadeOutTime, function() {
+            .fadeIn($.getnoticed.addDuration)
+            .delay($.getnoticed.removeDelay)
+            .slideToggle($.getnoticed.removeDuration, function() {
                 $(this).remove();
             });
     };
@@ -33,7 +33,7 @@
         $(this)
             .parents($.getnoticed.element+":eq(0)")
             .stop()
-            .fadeOut($.getnoticed.fadeOutTime, function() {
+            .slideToggle($.getnoticed.removeDuration, function() {
                 $(this).remove();
             });
     });

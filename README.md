@@ -20,13 +20,13 @@ You can also define the element to output along with custom delay and fade setti
 
 ````javascript
     $.getnoticed.add({
-        title:        'Info',
-        text:         'Here is some information',
-        type:         'info',
-        element:      'div',
-        fadeInTime:   1000,
-        fadeOutDelay: 5000,
-        fadeOutTime:  500
+        title:          'Info',
+        text:           'Here is some information',
+        type:           'info',
+        element:        'div',
+        addDuration:    1000,
+        removeDelay:    5000,
+        removeDuration: 500
     });
 ````
 
