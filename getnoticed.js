@@ -1,7 +1,7 @@
 (function($) {
     $.getnoticed = {
         'element':'p', 'title':'Info', 'type':'info',
-        'addDuration':500, 'removeDelay':10000, 'removeDuration':600
+        'addDuration':500, 'removeDelay':6000, 'removeDuration':600
     };
     
     $.getnoticed.add = function(params) {
@@ -16,8 +16,8 @@
         var response = '';
         response += '<'+$.getnoticed.element;
         response += ' class="'+$.getnoticed.type+' notification">';
-        response += '<span><em>'+$.getnoticed.title+'</em></span> ';
-        response += $.getnoticed.text;
+        response += '<div class="getnoticedTitle"><span>'+$.getnoticed.title+'</span></div> ';
+        response += '<span class="getnoticedText">'+$.getnoticed.text+'</span>';
         response += ' <a class="getnoticedClose" href="#">x</a></'+$.getnoticed.element+'>';
         $(response)
             .hide()
@@ -32,9 +32,6 @@
         event.preventDefault();
         $(this)
             .parents($.getnoticed.element+":eq(0)")
-            .stop()
-            .slideToggle($.getnoticed.removeDuration, function() {
-                $(this).remove();
-            });
+            .stop();
     });
 })( jQuery );
