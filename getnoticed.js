@@ -9,10 +9,7 @@
             throw 'You need to provide the "text" param';
         }
         // override the defaults with supplied params
-        for (var obj in params)
-        {
-            $.getnoticed[obj] = params[obj];
-        }
+        $.extend($.getnoticed, params);
         var response = '';
         response += '<'+$.getnoticed.element;
         response += ' class="'+$.getnoticed.type+' notification">';
