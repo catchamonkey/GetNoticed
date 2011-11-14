@@ -21,14 +21,20 @@
             .appendTo('#notifications')
             .fadeIn($.getnoticed.addDuration)
             .delay($.getnoticed.removeDelay)
-            .slideToggle($.getnoticed.removeDuration, function() {
+            .hide("slide", {direction: "up"}, $.getnoticed.removeDuration, function() {
+                $(this).before('<div style="height:'+$(this).height()+'px;" class="placeholder">');
+                $(this).after('</div>');
                 $(this).remove();
+                $('.placeholder').slideUp();
             });
     };
-    $("a.getnoticedClose").live('click', function(event) {
+    $(".notification").live('click', function(event) {
         event.preventDefault();
-        $(this)
-            .parents($.getnoticed.element+":eq(0)")
-            .stop();
+        $(this).stop().hide("slide", {direction: "up"}, $.getnoticed.removeDuration, function() {
+            $(this).before('<div style="height:'+$(this).height()+'px;" class="placeholder">');
+            $(this).after('</div>');
+            $(this).remove();
+            $('.placeholder').slideUp();
+        });
     });
 })( jQuery );
