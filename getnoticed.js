@@ -14,8 +14,8 @@
         response += '<'+$.getnoticed.element
         response += ' class="'+$.getnoticed.type+' notification">'
         response += '<strong>'+$.getnoticed.title+'</strong> '
-        response += '<span class="getnoticedText">'+$.getnoticed.text+'</span>'
-        response += ' <a class="getnoticedClose" href="#">x</a></'+$.getnoticed.element+'>'
+        response += '<span>'+$.getnoticed.text+'</span>'
+        response += ' <a href="#">x</a></'+$.getnoticed.element+'>'
         $(response)
             .hide()
             .appendTo('#notifications')
