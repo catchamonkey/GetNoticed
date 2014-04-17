@@ -40,21 +40,21 @@ $.getnoticed.error('This is your error text');
 You can also define the element to output along with custom delay and fade settings.
 
 ````javascript
-    $.getnoticed.add({
-        title:          'Info',
-        text:           'Here is some information',
-        type:           'info',
-        element:        'div',
-        addDuration:    1000,
-        removeDelay:    5000,
-        removeDuration: 500
-    });
+$.getnoticed.add({
+    title:          'Info',
+    text:           'Here is some information',
+    type:           'info',
+    element:        'div',
+    addDuration:    1000,
+    removeDelay:    5000,
+    removeDuration: 500
+});
 ````
 
 This will output
 
 ````html
-    <li class="info notification"><strong>Info:</strong> Here is some information <a href="#">x</a></li>
+<li class="info notification"><strong>Info:</strong> Here is some information <a href="#">x</a></li>
 ````
 
 This element will fade in over 1 second, stay on screen for 5 seconds, then fade out over half a second.
