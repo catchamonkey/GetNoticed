@@ -54,7 +54,7 @@ $.getnoticed.add({
 This will output
 
 ````html
-<li class="info notification"><strong>Info:</strong> Here is some information <a href="#">x</a></li>
+<div class="info notification"><strong>Info:</strong> Here is some information <a href="#">x</a></div>
 ````
 
 This element will fade in over 1 second, stay on screen for 5 seconds, then fade out over half a second.
